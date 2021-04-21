@@ -1,8 +1,9 @@
-import { CharactersService } from './services/characters.service';
+import { TranslateService } from './services/translate/translate.service';
 import { AfterViewInit, Component, OnInit } from '@angular/core';
-import { Character } from './models/models';
+import { Character, AppStrings, Languages } from './models/models';
 
 import * as M from 'materialize-css';
+import { CharactersService } from './services/characters/characters.service';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -10,6 +11,7 @@ import * as M from 'materialize-css';
 })
 export class AppComponent implements OnInit, AfterViewInit {
   Status: typeof Status = Status
+  languages: typeof Languages = Languages
   currentStatus: Status = Status.loading
 
   options: Character[] = []
@@ -19,9 +21,17 @@ export class AppComponent implements OnInit, AfterViewInit {
   bestScore: number = 0
   modal: any
 
+  appStrings: AppStrings
+  selectedLanguage: string = Languages.ES
+
   constructor(
     private charactersService: CharactersService,
-  ) { }
+    private translateService: TranslateService
+  ) {
+    this.translateService.language.subscribe(val => { this.selectedLanguage = val })
+    this.appStrings = this.translateService.getCurrentLanguage()
+  }
+
   ngAfterViewInit(): void {
     var elems = document.querySelector('.modal');
     this.modal = M.Modal.init(elems!!, { dismissible: false });
@@ -103,6 +113,9 @@ export class AppComponent implements OnInit, AfterViewInit {
     this.charactersService.resetShownCharacters()
   }
 
+  changeLanguage(language: string) {
+    this.appStrings = this.translateService.changeLanguage(language)
+  }
 
 }
 

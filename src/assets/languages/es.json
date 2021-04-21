@@ -1,0 +1,11 @@
+{
+    "es": {
+        "title": "Adivina el personaje",
+        "score": "Puntuación",
+        "bestScore": "Mejor Puntuación",
+        "incorrect": "Incorrecto",
+        "retry": "Reintentar",
+        "correctAnswer":"Respuesta Correcta",
+        "errorMessage":"Ocurrió un error al obtener la información"
+    }
+}

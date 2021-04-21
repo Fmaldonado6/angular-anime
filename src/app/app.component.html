@@ -1,5 +1,5 @@
 <div class="container" [ngSwitch]="currentStatus">
-  <h2 class="title">Adivina el personaje</h2>
+  <h2 class="title">{{ appStrings.title }}</h2>
   <div class="loading" *ngSwitchCase="Status.loading">
     <div class="spinner-border" role="status">
       <span class="sr-only">Loading...</span>
@@ -10,8 +10,10 @@
     <div class="game-container">
       <img class="image z-depth-4" [src]="this.options[correct].image_url" />
       <div class="score-container">
-        <span class="z-depth-1">Puntuacion: {{ score }}</span>
-        <span class="z-depth-1">Mejor puntuacion: {{ bestScore }}</span>
+        <span class="z-depth-1">{{ appStrings.score }}: {{ score }}</span>
+        <span class="z-depth-1"
+          >{{ appStrings.bestScore }}: {{ bestScore }}</span
+        >
       </div>
       <div class="options-container">
         <div
@@ -34,12 +36,12 @@
   </div>
 
   <div class="error" *ngSwitchCase="Status.error">
-    <h4>Ocurrió un error al obtener la información</h4>
+    <h4>{{ appStrings.errorMessage }}</h4>
     <button
       class="btn waves-effect waves-light indigo action-btn"
       (click)="this.getRandomCharacter()"
     >
-      Reintentar
+      {{ appStrings.retry }}
     </button>
   </div>
 </div>
@@ -47,10 +49,10 @@
 <div class="modal">
   <div class="modal-content game-over" *ngIf="this.options[correct]">
     <div class="modal-title-container">
-      <h3>Incorrecto</h3>
-      <h4>Puntuación: {{ score }}</h4>
+      <h3>{{ appStrings.incorrect }}</h3>
+      <h4>{{ appStrings.score }}: {{ score }}</h4>
     </div>
-    <h4>Respuesta correcta:</h4>
+    <h4>{{ appStrings.correctAnswer }}:</h4>
     <img class="correct-img shadow" [src]="this.options[correct].image_url" />
     <div class="character-info shadow">
       <span class="character-name">{{ this.options[correct].title }}</span>
@@ -67,13 +69,29 @@
       class="action-btn btn waves-effect waves-light indigo"
       (click)="this.reset()"
     >
-      Reintentar
+      {{ appStrings.retry }}
     </button>
   </div>
 </div>
 
-<ul class="background">
+<div class="languages">
+  <div
+    (click)="changeLanguage(languages.ES)"
+    class="lang waves-effect waves-light"
+    [ngClass]="{ selected: selectedLanguage == languages.ES }"
+  >
+    <span class="flag-icon flag-icon-mx"></span>
+  </div>
+  <div
+    (click)="changeLanguage(languages.EN)"
+    class="lang waves-effect waves-light"
+    [ngClass]="{ selected: selectedLanguage == languages.EN }"
+  >
+    <span class="flag-icon flag-icon-us"></span>
+  </div>
+</div>
 
+<ul class="background">
   <li></li>
   <li></li>
   <li></li>

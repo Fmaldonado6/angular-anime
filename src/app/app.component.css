@@ -7,7 +7,7 @@
   justify-content: center;
 }
 
-.error button{
+.error button {
   margin-top: 20px;
 }
 
@@ -153,6 +153,28 @@
 
 .option:hover {
   background-color: #1a237e;
+}
+
+.languages {
+  display: flex;
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+}
+
+.lang {
+  background-color: white;
+  padding: 10px;
+  border-radius: 10px;
+  margin: 10px;
+}
+
+.lang:hover {
+  background-color: rgba(201, 201, 201, 0.575);
+}
+
+.selected {
+  background-color: rgba(168, 168, 168, 0.562);
 }
 
 @media (max-width: 1000px) {
