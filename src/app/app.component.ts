@@ -24,7 +24,7 @@ export class AppComponent implements OnInit, AfterViewInit {
   ) { }
   ngAfterViewInit(): void {
     var elems = document.querySelector('.modal');
-    this.modal = M.Modal.init(elems!!,{dismissible:false});
+    this.modal = M.Modal.init(elems!!, { dismissible: false });
   }
 
   ngOnInit(): void {
@@ -36,11 +36,30 @@ export class AppComponent implements OnInit, AfterViewInit {
     this.currentStatus = Status.loading
     try {
       this.options = await this.charactersService.getRandomCharacters()
-      this.correct = Math.floor(Math.random() * 4)
+      this.correct = this.getCorrectCharacterIndex()
       this.currentStatus = Status.loaded
     } catch (error) {
       this.currentStatus = Status.error
     }
+  }
+
+  getCorrectCharacterIndex(): number {
+
+    let randomNumber = Math.floor(Math.random() * 4)
+    let character = this.options[this.correct]
+
+    if (!this.charactersService.charactersShown.includes(character.mal_id))
+      return randomNumber
+
+    for (randomNumber = 0; randomNumber < 4; randomNumber++) {
+      character = this.options[this.correct]
+
+      if (!this.charactersService.charactersShown.includes(character.mal_id))
+        return randomNumber
+    }
+
+    return randomNumber
+
   }
 
   selectAnswer(index: number) {
@@ -75,6 +94,7 @@ export class AppComponent implements OnInit, AfterViewInit {
     this.score = 0
     this.modal.close()
     this.getRandomCharacter()
+    this.charactersService.resetShownCharacters()
   }
 
 

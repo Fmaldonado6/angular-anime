@@ -7,7 +7,7 @@ import { Character } from 'src/app/models/models';
 })
 export class CharactersService {
 
-
+  charactersShown: number[] = []
 
   async getRandomCharacters(): Promise<Character[]> {
 
@@ -22,13 +22,12 @@ export class CharactersService {
     for (let i = 0; i < 4; i++) {
 
       let number = 0
-
       while (true) {
         number = Math.floor(Math.random() * charactersJson.length)
         if (pickedNumbers.length == 0 || !pickedNumbers.includes(number))
           break;
       }
-      
+
       pickedNumbers.push(number)
       characters.push(charactersJson[number])
     }
@@ -36,5 +35,15 @@ export class CharactersService {
     return characters
 
   }
+
+  addShownCharacter(character: Character) {
+    this.charactersShown.push(character.mal_id)
+  }
+
+  resetShownCharacters() {
+    this.charactersShown = []
+  }
+
+
 
 }
