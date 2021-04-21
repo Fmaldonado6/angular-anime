@@ -36,10 +36,15 @@ export class AppComponent implements OnInit, AfterViewInit {
   async getRandomCharacter() {
     this.currentStatus = Status.loading
     try {
-      this.options = await this.charactersService.getRandomCharacters()
-      this.correct = this.getCorrectCharacterIndex()
+      do {
+        this.options = await this.charactersService.getRandomCharacters()
+        this.correct = this.getCorrectCharacterIndex()
+      }
+      while (this.correct == -1)
+      this.charactersService.addShownCharacter(this.options[this.correct])
       this.currentStatus = Status.loaded
     } catch (error) {
+      console.log(error)
       this.currentStatus = Status.error
     }
   }
@@ -47,19 +52,19 @@ export class AppComponent implements OnInit, AfterViewInit {
   getCorrectCharacterIndex(): number {
 
     let randomNumber = Math.floor(Math.random() * 4)
-    let character = this.options[this.correct]
+    let character = this.options[randomNumber]
 
     if (!this.charactersService.charactersShown.includes(character.mal_id))
       return randomNumber
 
     for (randomNumber = 0; randomNumber < 4; randomNumber++) {
-      character = this.options[this.correct]
+      character = this.options[randomNumber]
 
       if (!this.charactersService.charactersShown.includes(character.mal_id))
         return randomNumber
     }
 
-    return randomNumber
+    return -1
 
   }
 
