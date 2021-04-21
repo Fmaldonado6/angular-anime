@@ -10,7 +10,7 @@
 </p>
 
 <p align="center">
- <img  src="./assets/captura.png"alt="Logo" width="50%" >
+ <img  src="./assets/screenshot.png"alt="Logo" width="50%" >
 </p>
 
 
