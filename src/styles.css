@@ -7,9 +7,11 @@
   border-radius: 10px !important;
 }
 
-.waves-effect{
-    border: none !important;
+.waves-effect {
+  border: none !important;
 }
+
+
 
 @keyframes cube {
   from {
@@ -21,7 +23,6 @@
     opacity: 0;
   }
 }
-
 
 .background {
   position: fixed;
