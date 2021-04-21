@@ -1,3 +1,4 @@
 export const environment = {
-  production: true
+  production: true,
+  jikanAPI: "https://api.jikan.moe/v3"
 };

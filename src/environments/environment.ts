@@ -3,7 +3,9 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  charactersListUrl: "https://fmaldonado6.github.io/files/waifus.json",
+  jikanUrl:"https://api.jikan.moe/v3"
 };
 
 /*
