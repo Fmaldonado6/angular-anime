@@ -28,6 +28,7 @@ export class AppComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit(): void {
+    this.getScore()
     this.getRandomCharacter()
   }
 
