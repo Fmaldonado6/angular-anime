@@ -16,7 +16,7 @@
 
 ## Acerca del proyecto
 
-Un pequeño juego de adivina el personaje desarrollada con Angular para un proyecto de la escuela.
+Un pequeño juego de adivina el personaje desarrollado con Angular para un proyecto de la escuela.
 
 ## Contact
 
