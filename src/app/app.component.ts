@@ -39,7 +39,7 @@ export class AppComponent implements OnInit, AfterViewInit {
       this.correct = Math.floor(Math.random() * 4)
       this.currentStatus = Status.loaded
     } catch (error) {
-      console.log(error)
+      this.currentStatus = Status.error
     }
   }
 

@@ -32,6 +32,16 @@
       </div>
     </div>
   </div>
+
+  <div class="error" *ngSwitchCase="Status.error">
+    <h4>Ocurrió un error al obtener la información</h4>
+    <button
+      class="btn waves-effect waves-light indigo action-btn"
+      (click)="this.getRandomCharacter()"
+    >
+      Reintentar
+    </button>
+  </div>
 </div>
 
 <div class="modal">
@@ -53,7 +63,10 @@
         }}</span
       >
     </div>
-    <button class="btn waves-effect waves-light indigo" (click)="this.reset()">
+    <button
+      class="action-btn btn waves-effect waves-light indigo"
+      (click)="this.reset()"
+    >
       Reintentar
     </button>
   </div>

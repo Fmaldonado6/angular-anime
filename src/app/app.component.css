@@ -1,8 +1,14 @@
-.loading {
+.loading,
+.error {
   display: flex;
   height: 70vh;
   align-items: center;
+  flex-direction: column;
   justify-content: center;
+}
+
+.error button{
+  margin-top: 20px;
 }
 
 .loaded {
@@ -52,10 +58,14 @@
 }
 
 .game-over button {
-  border: none;
-  border-radius: 15px;
   width: 50%;
+}
+
+.action-btn {
+  border: none !important;
+  border-radius: 15px;
   padding: 5px 10px;
+  outline: none !important;
   color: white;
 }
 
