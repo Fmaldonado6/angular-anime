@@ -13,6 +13,7 @@
  <img  src="./assets/captura.png"alt="Logo" width="50%" >
 </p>
 
+
 ## Acerca del proyecto
 
 Un pequeño juego de adivina el personaje desarrollada con Angular para un proyecto de la escuela.
