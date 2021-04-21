@@ -1,0 +1,12 @@
+{
+    "en": {
+        "title": "Guess the character",
+        "score": "Score",
+        "bestScore": "Best Score",
+        "incorrect": "Incorrect",
+        "retry": "Retry",
+        "correctAnswer":"Correct Answer",
+        "errorMessage":"An error has occured while fetching the information"
+
+    }
+}
