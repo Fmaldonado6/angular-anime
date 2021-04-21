@@ -1,4 +1,20 @@
 <div class="container" [ngSwitch]="currentStatus">
+  <div class="languages">
+    <div
+      (click)="changeLanguage(languages.ES)"
+      class="lang waves-effect waves-light"
+      [ngClass]="{ selected: selectedLanguage == languages.ES }"
+    >
+      <span class="flag-icon flag-icon-mx"></span>
+    </div>
+    <div
+      (click)="changeLanguage(languages.EN)"
+      class="lang waves-effect waves-light"
+      [ngClass]="{ selected: selectedLanguage == languages.EN }"
+    >
+      <span class="flag-icon flag-icon-us"></span>
+    </div>
+  </div>
   <h2 class="title">{{ appStrings.title }}</h2>
   <div class="loading" *ngSwitchCase="Status.loading">
     <div class="spinner-border" role="status">
@@ -71,23 +87,6 @@
     >
       {{ appStrings.retry }}
     </button>
-  </div>
-</div>
-
-<div class="languages">
-  <div
-    (click)="changeLanguage(languages.ES)"
-    class="lang waves-effect waves-light"
-    [ngClass]="{ selected: selectedLanguage == languages.ES }"
-  >
-    <span class="flag-icon flag-icon-mx"></span>
-  </div>
-  <div
-    (click)="changeLanguage(languages.EN)"
-    class="lang waves-effect waves-light"
-    [ngClass]="{ selected: selectedLanguage == languages.EN }"
-  >
-    <span class="flag-icon flag-icon-us"></span>
   </div>
 </div>
 

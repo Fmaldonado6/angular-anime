@@ -18,7 +18,7 @@
 }
 
 .title {
-  margin: 20px;
+  margin: 0px 0px 20px 0px;
   text-align: center;
 }
 
@@ -157,9 +157,9 @@
 
 .languages {
   display: flex;
-  position: absolute;
-  bottom: 0px;
-  right: 0px;
+  position: relative;
+  justify-content: flex-end;
+  margin-top: auto;
 }
 
 .lang {
