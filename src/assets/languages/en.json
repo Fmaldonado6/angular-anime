@@ -2,7 +2,7 @@
     "en": {
         "title": "Guess the character",
         "score": "Score",
-        "bestScore": "Best Score",
+        "bestScore": "High Score",
         "incorrect": "Incorrect",
         "retry": "Retry",
         "correctAnswer":"Correct Answer",
