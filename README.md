@@ -1,9 +1,9 @@
 <p align="center">
 
-  <h1 align="center">Adivina el personaje</h1>
+  <h1 align="center">Guess the character</h1>
 
   <h3 align="center">
-    Adivina el personaje de anime
+    Guess the anime character
     <br />
  
   </h3>
@@ -16,7 +16,7 @@
 
 ## Acerca del proyecto
 
-Un pequeño juego de adivina el personaje desarrollado con Angular para un proyecto de la escuela.
+A small guess the character game, developed using Angular and the Jikan REST API.
 
 ## Contact
 
